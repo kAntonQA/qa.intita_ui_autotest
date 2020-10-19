@@ -16,10 +16,11 @@ class BasePage:
         WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
 
     def wait_to_apeare_xpath(self, check):
-        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located((By.XPATH, "//div[contains(text(), '"+check+"')]")))
+        WebDriverWait(self.browser, 10).until(
+            EC.visibility_of_element_located((By.XPATH, "//div[contains(text(), '" + check + "')]")))
+
 
 class User:
-
     superadmin = "superadmin@intita.com"
     director = "director@intita.com"
     cmanager = "cmanager@qaintita.com"

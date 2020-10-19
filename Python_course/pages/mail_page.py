@@ -1,12 +1,12 @@
 from selenium.webdriver.support.ui import Select
 from BaseToPage.base_mail_page import *
 from BaseToPage.base_page import *
-from selenium.common.exceptions import NoSuchElementException
+# from selenium.common.exceptions import NoSuchElementException
 
 
 class MailPage(BasePage):
 
-    def type_in_field(self):
+    def type_in_fields(self):
 
         element = self.browser.find_element(By.ID, "mailType")
         drp = Select(element)
