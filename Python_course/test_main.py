@@ -17,9 +17,10 @@ def browser():
     browser.quit()
 
 
-class TestMailgun:
+class estMailgun:
     # mailing test
     def test_mailing(self, browser):
+
         page = MainPage(browser, LINK)
         page.open()
         page.login_in_positive(User.cmanager, User.password)
@@ -31,7 +32,7 @@ class TestMailgun:
         page.type_in_fields()
 
 
-class TestForMainPage:
+class estForMainPage:
 
     # Main Page, test for main links
     def test_main_page(self, browser):
@@ -70,7 +71,7 @@ class TestLoginIn:
         page.login_in_negative_empty_field(User.accountant, "")
 
 
-class TestForModuleRTeacher:
+class estForModuleRTeacher:
 
     # Tests for teacher(module and course)
     def test_for_teacher_module(self, browser):

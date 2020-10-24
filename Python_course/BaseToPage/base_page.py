@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 
 
 class BasePage:
@@ -12,10 +13,18 @@ class BasePage:
     def open(self):
         self.browser.get(self.url)
 
-    def wait_to_apeare_css(self, selector):
-        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
+    # checking the present method
+    def is_element_present(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except NoSuchElementException:
+            return False
+        return True
 
-    def wait_to_apeare_xpath(self, check):
+    def wait_to_apeare(self, selector):
+        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located(self.selector))
+
+    def checking_the_text_on_page(self, check):
         WebDriverWait(self.browser, 10).until(
             EC.visibility_of_element_located((By.XPATH, "//div[contains(text(), '" + check + "')]")))
 
